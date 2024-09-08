@@ -23,8 +23,15 @@ jobs:
       # Checks out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      
+      # Checks out if NodeJS is installed
       - name: Setup NodeJS
         uses: actions/setup-node@v4.0.3
         with:
           node-version: 16.13.2 # Same as the development
+
+      # Setting up Mocha and dependencies packages
+      - name: Mocha installing for testing purposes
+        run: |
+          cd src;
+          npm install -g mocha;
+          npm install;
