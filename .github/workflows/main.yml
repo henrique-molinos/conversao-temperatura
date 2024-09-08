@@ -39,3 +39,14 @@ jobs:
       # Testing
       - name: Test execution
         run: mocha src/test/convert.js
+
+      # Build and pushDocker images
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v6.7.0
+        with:
+          context: src
+          file: src/Dockerfile
+          push: true
+          tags: |
+            henriquemolinos/conversao-temperatura:v1
+            henriquemolinos/conversao-temperatura:latest
